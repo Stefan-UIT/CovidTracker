@@ -7,8 +7,8 @@
 //
 
 struct SummaryRecord {
-    var newRecord: Record
-    var totalRecord: Record
+    var newRecords: Record
+    var totalRecords: Record
 }
 
 extension SummaryRecord: Decodable {
@@ -32,12 +32,11 @@ extension SummaryRecord: Decodable {
     
     init(from decoder: Decoder) throws {
         let rawCountryRecord = try RawSummaryRecord(from: decoder)
-        self.newRecord = Record(confirmed: rawCountryRecord.newConfirmed,
+        self.newRecords = Record(confirmed: rawCountryRecord.newConfirmed,
                                 deaths: rawCountryRecord.newDeaths,
                                 recovered: rawCountryRecord.newRecovered)
-        self.totalRecord = Record(confirmed: rawCountryRecord.totalConfirmed,
+        self.totalRecords = Record(confirmed: rawCountryRecord.totalConfirmed,
                                   deaths: rawCountryRecord.totalDeaths,
                                   recovered: rawCountryRecord.totalRecovered)
     }
 }
-

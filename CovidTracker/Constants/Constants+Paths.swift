@@ -14,7 +14,7 @@ struct AppGateways {
 
 struct Paths {
     struct Covid {
-        static let fetchSummaryData = "/summary"
+        static let fetchSummaryStats = "/summary"
     }
 }
 

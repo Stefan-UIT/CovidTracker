@@ -11,5 +11,5 @@ import Moya
 protocol CovidNetworkable {
     var provider: MoyaProvider<CovidTarget> { get }
 
-    func fetchSummaryData(completion: @escaping (SummaryRecords?, Error?) -> Void)
+    func fetchSummaryStats(completion: @escaping (SummaryStats?, Error?) -> Void)
 }

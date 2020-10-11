@@ -7,13 +7,13 @@
 //
 
 struct Country {
-    var country: String = ""
+    var name: String = ""
     var slug: String = ""
 }
 
 extension Country: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case country = "Country"
+        case name = "Country"
         case slug = "Slug"
     }
 }

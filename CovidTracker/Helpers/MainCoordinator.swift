@@ -15,7 +15,7 @@ class MainCoordinator: Coordinator {
         self.navigationController = navigationController
     }
 
-    func start(withViewController viewController: BaseViewController = SummaryViewController.instantiate()) {
+    func start(withViewController viewController: BaseViewController = SummaryStatsViewController.instantiate()) {
         viewController.coordinator = self
         navigationController.pushViewController(viewController, animated: false)
     }

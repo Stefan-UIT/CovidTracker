@@ -9,14 +9,14 @@
 import Moya
 
 enum CovidTarget {
-    case fetchSummaryData
+    case fetchSummaryStats
 }
 
 extension CovidTarget: TargetType {
     var path: String {
         switch self {
-        case .fetchSummaryData:
-            return Paths.Covid.fetchSummaryData
+        case .fetchSummaryStats:
+            return Paths.Covid.fetchSummaryStats
         }
     }
     
@@ -30,7 +30,7 @@ extension CovidTarget: TargetType {
     
     var task: Task {
         switch self {
-        case .fetchSummaryData:
+        case .fetchSummaryStats:
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }

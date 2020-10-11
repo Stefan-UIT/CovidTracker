@@ -1,5 +1,5 @@
 //
-//  CountrySummaryRecord.swift
+//  CountryStats.swift
 //  CovidTracker
 //
 //  Created by Trung Vo on 10/11/20.
@@ -8,21 +8,21 @@
 
 import Foundation
 
-struct CountrySummaryRecord {
+struct CountryStats {
     var country: Country
-    var summaryRecord: SummaryRecord
+    var summary: SummaryRecord
     var date: Date
 }
 
-extension CountrySummaryRecord: Decodable {
+extension CountryStats: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case country, summaryRecord
+        case country, summary
         case date = "Date"
     }
     
     init(from decoder: Decoder) throws {
         self.country = try Country(from: decoder)
-        self.summaryRecord = try SummaryRecord(from: decoder)
+        self.summary = try SummaryRecord(from: decoder)
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.date = try container.decode(Date.self, forKey: .date)

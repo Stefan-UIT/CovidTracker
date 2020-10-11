@@ -21,14 +21,14 @@ class CovidService {
 
 // MARK: - Movies Network Services
 extension CovidService: CovidNetworkable {
-    func fetchSummaryData(completion: @escaping (SummaryRecords?, Error?) -> Void) {
-        provider.request(CovidTarget.fetchSummaryData, completion: { (response) in
+    func fetchSummaryStats(completion: @escaping (SummaryStats?, Error?) -> Void) {
+        provider.request(CovidTarget.fetchSummaryStats, completion: { (response) in
             switch response {
             case .failure(let error):
                 completion(nil, error)
             case .success(let response):
                 do {
-                    let decodedData = try self.translationLayer.decode(SummaryRecords.self, fromData: response.data)
+                    let decodedData = try self.translationLayer.decode(SummaryStats.self, fromData: response.data)
                     completion(decodedData, nil)
                 } catch let error {
                     completion(nil, error)
