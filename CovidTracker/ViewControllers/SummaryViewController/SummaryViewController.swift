@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SummaryViewController.swift
 //  CovidTracker
 //
 //  Created by Trung Vo on 10/11/20.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SummaryViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-
