@@ -8,9 +8,16 @@
 
 import UIKit
 
-class SummaryViewController: BaseViewController {
-
+final class SummaryViewController: BaseViewController {
+    private var viewModel: SummaryViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initViewModel()
+    }
+    
+    private func initViewModel() {
+        viewModel = SummaryViewModel()
+        viewModel.fetchSummaryData()
     }
 }
