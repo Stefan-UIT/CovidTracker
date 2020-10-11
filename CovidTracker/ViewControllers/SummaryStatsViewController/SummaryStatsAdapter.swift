@@ -38,7 +38,7 @@ extension SummaryStatsAdapter: UITableViewDataSource {
         var rowHeight: CGFloat {
             switch self {
             case .global:
-                return 300
+                return 250
             default:
                 return 80
             }
@@ -74,11 +74,11 @@ extension SummaryStatsAdapter: UITableViewDataSource {
         isSearching ? CellSection.country.rowHeight : rowHeight(inSection: indexPath.section)
     }
     
-    private func rowHeight(inSection section:Int) -> CGFloat {
+    private func rowHeight(inSection section: Int) -> CGFloat {
         CellSection(rawValue: section)?.rowHeight ?? 0
     }
     
-    private func cellForRow(inTableView tableView:UITableView, atIndexPath indexPath:IndexPath) -> UITableViewCell {
+    private func cellForRow(inTableView tableView: UITableView, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cellSection = CellSection(rawValue: indexPath.section)
         switch cellSection {
         case .global:
