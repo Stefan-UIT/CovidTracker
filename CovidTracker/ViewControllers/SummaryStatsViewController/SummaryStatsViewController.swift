@@ -11,8 +11,13 @@ import UIKit
 final class SummaryStatsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    private let searchController = UISearchController(searchResultsController: nil)
     private var viewModel: SummaryViewModel!
     private var adapter: SummaryStatsAdapter!
+    
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +40,15 @@ final class SummaryStatsViewController: BaseViewController {
     
     private func setupUI() {
         setupTableView()
+        setupSearchViewController()
+    }
+    
+    private func setupSearchViewController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     private func setupTableView() {
@@ -43,9 +57,29 @@ final class SummaryStatsViewController: BaseViewController {
         tableView.register(SummaryGlobalStatsCell.uiNib(),
         forCellReuseIdentifier: SummaryGlobalStatsCell.identifier)
     }
+    
+    func filterContentForSearchText(_ searchText: String) {
+//      filteredCandies = candies.filter { (candy: Candy) -> Bool in
+//        return candy.name.lowercased().contains(searchText.lowercased())
+//      }
+//
+        viewModel.search(withText: searchText)
+        tableView.reloadData()
+    }
+}
+
+extension SummaryStatsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
 }
 
 extension SummaryStatsViewController: SummaryViewModelDelegate {
+    var isSearching: Bool {
+        searchController.isActive && !isSearchBarEmpty
+    }
+    
     func summaryViewModel(_ viewModel: SummaryViewModel, didFailWithError error: Error) {
         print(error)
     }
@@ -62,11 +96,16 @@ extension SummaryStatsViewController: SummaryViewModelDelegate {
 
 // MARK: - SummaryStatsListProtocol
 extension SummaryStatsViewController: SummaryStatsListProtocol {
+    var isFiltering: Bool {
+        searchController.isActive && !isSearchBarEmpty
+    }
+    
     func retrieveGlobalStats() -> SummaryRecord {
         viewModel.globalStats
     }
+    
     func countryStats(at indexPath: IndexPath) -> CountryStats {
-        viewModel.countryStats(at: indexPath.row)
+         viewModel.countryStats(at: indexPath.row)
     }
     
     func didSelectItem(at indexPath: IndexPath) {
@@ -78,6 +117,6 @@ extension SummaryStatsViewController: SummaryStatsListProtocol {
     }
     
     func retrieveNumberOfItems() -> Int {
-        viewModel.numberOfItems
+        viewModel.numberOfCountryStats
     }
 }

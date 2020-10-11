@@ -9,6 +9,7 @@
 import UIKit
 
 protocol SummaryStatsListProtocol {
+    var isSearching: Bool { get }
     func retrieveGlobalStats() -> SummaryRecord
     func countryStats(at indexPath: IndexPath) -> CountryStats
     func didSelectItem(at indexPath: IndexPath)
@@ -27,16 +28,32 @@ class SummaryStatsAdapter: NSObject {
 
 // MARK: - UITableViewDataSource
 extension SummaryStatsAdapter: UITableViewDataSource {
+    var isSearching: Bool {
+        delegate.isSearching
+    }
     private enum CellSection: Int, CaseIterable {
         case global = 0
         case country = 1
+        
+        var rowHeight: CGFloat {
+            switch self {
+            case .global:
+                return 300
+            default:
+                return 80
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        CellSection.allCases.count
+        isSearching ? 1 : CellSection.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        isSearching ? delegate.retrieveNumberOfItems() : numberOfRow(inSection: section)
+    }
+    
+    private func numberOfRow(inSection section: Int) -> Int {
         switch CellSection(rawValue: section) {
         case .global:
             return 1
@@ -50,18 +67,25 @@ extension SummaryStatsAdapter: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = CellSection(rawValue: indexPath.section)
-        switch section {
+        isSearching ? countryStatsCell(tableView, atIndexPath: indexPath) : cellForRow(inTableView: tableView, atIndexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        isSearching ? CellSection.country.rowHeight : rowHeight(inSection: indexPath.section)
+    }
+    
+    private func rowHeight(inSection section:Int) -> CGFloat {
+        CellSection(rawValue: section)?.rowHeight ?? 0
+    }
+    
+    private func cellForRow(inTableView tableView:UITableView, atIndexPath indexPath:IndexPath) -> UITableViewCell {
+        let cellSection = CellSection(rawValue: indexPath.section)
+        switch cellSection {
         case .global:
             return globalStatsCell(tableView, atIndexPath: indexPath)
         default:
             return countryStatsCell(tableView, atIndexPath: indexPath)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let section = CellSection(rawValue: indexPath.section)
-        return section == CellSection.country ? 80 : 300
     }
     
     private func countryStatsCell(_ tableView: UITableView, atIndexPath indexPath: IndexPath) -> SummaryCountryStatsCell {

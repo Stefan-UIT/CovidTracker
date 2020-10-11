@@ -8,6 +8,7 @@
 
 // MARK: - MoviesViewModelDelegate
 protocol SummaryViewModelDelegate: class {
+    var isSearching: Bool { get }
     func didFinishFetchingData(in viewModel: SummaryViewModel)
     func didLoadDataSuccessfully(in viewModel: SummaryViewModel)
     func summaryViewModel(_ viewModel: SummaryViewModel, didFailWithError error: Error)
@@ -16,6 +17,7 @@ protocol SummaryViewModelDelegate: class {
 final class SummaryViewModel {
     private var provider: CovidNetworkable!
     private var summaryStats: SummaryStats!
+    var filteredCountryStats = [CountryStats]()
     
     weak var delegate: SummaryViewModelDelegate?
     
@@ -36,12 +38,21 @@ final class SummaryViewModel {
         }
     }
     
-    var numberOfItems: Int {
-        summaryStats?.countries.count ?? 0
+    private var isSearching: Bool {
+        delegate?.isSearching ?? false
+    }
+    
+    func search(withText searchText: String) {
+        filteredCountryStats = summaryStats.countries.filter({$0.country.name.lowercased().contains(searchText.lowercased())})
+    }
+    
+    var numberOfCountryStats: Int {
+        isSearching ? filteredCountryStats.count : summaryStats.countries.count
     }
     
     func countryStats(at position: Int) -> CountryStats {
-        summaryStats.countries[position]
+        isSearching ? filteredCountryStats[position] : summaryStats.countries[position]
+        
     }
     
     var globalStats: SummaryRecord {
