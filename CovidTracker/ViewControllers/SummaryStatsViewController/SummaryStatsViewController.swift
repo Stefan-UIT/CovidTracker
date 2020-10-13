@@ -59,10 +59,6 @@ final class SummaryStatsViewController: BaseViewController {
     }
     
     func filterContentForSearchText(_ searchText: String) {
-//      filteredCandies = candies.filter { (candy: Candy) -> Bool in
-//        return candy.name.lowercased().contains(searchText.lowercased())
-//      }
-//
         viewModel.search(withText: searchText)
         tableView.reloadData()
     }
@@ -81,7 +77,7 @@ extension SummaryStatsViewController: SummaryViewModelDelegate {
     }
     
     func summaryViewModel(_ viewModel: SummaryViewModel, didFailWithError error: Error) {
-        print(error)
+        showAlert(message: error.localizedDescription)
     }
     
     func didLoadDataSuccessfully(in viewModel: SummaryViewModel) {
@@ -96,12 +92,12 @@ extension SummaryStatsViewController: SummaryViewModelDelegate {
 
 // MARK: - SummaryStatsListProtocol
 extension SummaryStatsViewController: SummaryStatsListProtocol {
-    var isFiltering: Bool {
-        searchController.isActive && !isSearchBarEmpty
+    var summaryStats: SummaryStats {
+        viewModel.summaryStats
     }
     
-    func retrieveGlobalStats() -> SummaryRecord {
-        viewModel.globalStats
+    var isFiltering: Bool {
+        searchController.isActive && !isSearchBarEmpty
     }
     
     func countryStats(at indexPath: IndexPath) -> CountryStats {
@@ -109,7 +105,8 @@ extension SummaryStatsViewController: SummaryStatsListProtocol {
     }
     
     func didSelectItem(at indexPath: IndexPath) {
-        
+        let countryStats = viewModel.countryStats(at: indexPath.row)
+        coordinator?.redirectToCountryDetailVC(withCountry: countryStats)
     }
     
     func wilDisplayItem(at indexPath: IndexPath) {

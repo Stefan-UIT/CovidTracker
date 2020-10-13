@@ -13,14 +13,15 @@ class SummaryCountryStatsCell: UITableViewCell {
     @IBOutlet weak var recoveredLabel: UILabel!
     @IBOutlet weak var confirmedLabel: UILabel!
     @IBOutlet weak var countryNameLabel: UILabel!
-
-    func configureCell(countryStats: CountryStats) {
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    func configureCell(countryStats: CountryStats, date: Date) {
         countryNameLabel.text = countryStats.country.name
-        let totalRecord = countryStats.summary.totalRecords
+        let totalRecord = countryStats.record
         confirmedLabel.text = totalRecord.confirmed.formattedWithSeparator
         recoveredLabel.text = totalRecord.recovered.formattedWithSeparator
         deathsLabel.text = totalRecord.deaths.formattedWithSeparator
-        
+        dateLabel.text = date.string
     }
 }
 

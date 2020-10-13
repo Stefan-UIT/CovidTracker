@@ -16,7 +16,7 @@ protocol SummaryViewModelDelegate: class {
 
 final class SummaryViewModel {
     private var provider: CovidNetworkable!
-    private var summaryStats: SummaryStats!
+    private (set) var summaryStats: SummaryStats!
     var filteredCountryStats = [CountryStats]()
     
     weak var delegate: SummaryViewModelDelegate?
@@ -53,9 +53,5 @@ final class SummaryViewModel {
     func countryStats(at position: Int) -> CountryStats {
         isSearching ? filteredCountryStats[position] : summaryStats.countries[position]
         
-    }
-    
-    var globalStats: SummaryRecord {
-        summaryStats.global
     }
 }

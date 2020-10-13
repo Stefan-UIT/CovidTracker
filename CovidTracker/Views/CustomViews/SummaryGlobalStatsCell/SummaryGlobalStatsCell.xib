@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,43 +18,44 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9m-bI-cou">
-                        <rect key="frame" x="16" y="16" width="383" height="213"/>
+                        <rect key="frame" x="24" y="8" width="367" height="221"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Global Stats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwr-L1-gdl">
-                                <rect key="frame" x="0.0" y="0.0" width="204" height="52"/>
+                                <rect key="frame" x="0.0" y="0.0" width="204" height="68"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YI-PW-V1K">
-                                <rect key="frame" x="0.0" y="60" width="35.5" height="17"/>
+                                <rect key="frame" x="0.0" y="68" width="35.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oPC-Uz-6y0">
-                                <rect key="frame" x="0.0" y="93" width="383" height="120"/>
+                                <rect key="frame" x="0.0" y="101" width="367" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIL-tm-72w" userLabel="confirmed">
-                                        <rect key="frame" x="0.0" y="0.0" width="383" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="367" height="40"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pRA-vf-vgo">
-                                                <rect key="frame" x="0.0" y="10" width="20" height="20"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirmedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pRA-vf-vgo">
+                                                <rect key="frame" x="0.0" y="12" width="16" height="16"/>
+                                                <color key="tintColor" name="covidPink"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="QsQ-3G-QqB"/>
+                                                    <constraint firstAttribute="height" constant="16" id="QsQ-3G-QqB"/>
                                                     <constraint firstAttribute="width" secondItem="pRA-vf-vgo" secondAttribute="height" multiplier="1:1" id="dCM-pD-Ak9"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total confirmed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tq0-4y-xAM">
-                                                <rect key="frame" x="28" y="9.5" width="138" height="21.5"/>
+                                                <rect key="frame" x="24" y="9.5" width="138" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8H5-SQ-lb2">
-                                                <rect key="frame" x="335.5" y="9.5" width="47.5" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="317" y="8.5" width="50" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" name="covidPink"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -68,25 +70,26 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKE-fK-IEh" userLabel="recovered">
-                                        <rect key="frame" x="0.0" y="40" width="383" height="40"/>
+                                        <rect key="frame" x="0.0" y="40" width="367" height="40"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j2Q-UT-c3r">
-                                                <rect key="frame" x="0.0" y="10" width="20" height="20"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recoveredIcon" translatesAutoresizingMaskIntoConstraints="NO" id="j2Q-UT-c3r">
+                                                <rect key="frame" x="0.0" y="12" width="16" height="16"/>
+                                                <color key="tintColor" name="covidGreen"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="3Y2-cN-lzN"/>
+                                                    <constraint firstAttribute="height" constant="16" id="3Y2-cN-lzN"/>
                                                     <constraint firstAttribute="width" secondItem="j2Q-UT-c3r" secondAttribute="height" multiplier="1:1" id="98d-qX-dfc"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total recovered:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5Z-it-NEv">
-                                                <rect key="frame" x="28" y="9.5" width="136" height="21.5"/>
+                                                <rect key="frame" x="24" y="9.5" width="136" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEO-Op-fgv">
-                                                <rect key="frame" x="335.5" y="9.5" width="47.5" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="317" y="8.5" width="50" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" name="covidGreen"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -101,25 +104,26 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3U-bM-mod" userLabel="deaths">
-                                        <rect key="frame" x="0.0" y="80" width="383" height="40"/>
+                                        <rect key="frame" x="0.0" y="80" width="367" height="40"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8P3-9P-qkw">
-                                                <rect key="frame" x="0.0" y="10" width="20" height="20"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deathsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8P3-9P-qkw">
+                                                <rect key="frame" x="0.0" y="12" width="16" height="16"/>
+                                                <color key="tintColor" name="covidDarkGray"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="8P3-9P-qkw" secondAttribute="height" multiplier="1:1" id="Djh-aM-Mk2"/>
-                                                    <constraint firstAttribute="height" constant="20" id="JKc-Ad-wpl"/>
+                                                    <constraint firstAttribute="height" constant="16" id="JKc-Ad-wpl"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total deaths:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95F-zB-etA">
-                                                <rect key="frame" x="28" y="9.5" width="109.5" height="21.5"/>
+                                                <rect key="frame" x="24" y="9.5" width="109.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaw-rz-td3">
-                                                <rect key="frame" x="335.5" y="9.5" width="47.5" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="317" y="8.5" width="50" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" name="covidDarkGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -140,7 +144,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5YI-PW-V1K" firstAttribute="leading" secondItem="Nwr-L1-gdl" secondAttribute="leading" id="Dpb-7c-Muz"/>
                             <constraint firstItem="Nwr-L1-gdl" firstAttribute="leading" secondItem="j9m-bI-cou" secondAttribute="leading" id="IND-PY-Efg"/>
@@ -148,16 +152,17 @@
                             <constraint firstAttribute="bottom" secondItem="oPC-Uz-6y0" secondAttribute="bottom" id="aD3-Hn-lCe"/>
                             <constraint firstAttribute="trailing" secondItem="oPC-Uz-6y0" secondAttribute="trailing" id="cfZ-aL-I1u"/>
                             <constraint firstItem="oPC-Uz-6y0" firstAttribute="top" secondItem="5YI-PW-V1K" secondAttribute="bottom" constant="16" id="fsd-B2-WEP"/>
-                            <constraint firstItem="5YI-PW-V1K" firstAttribute="top" secondItem="Nwr-L1-gdl" secondAttribute="bottom" constant="8" id="lcr-V8-Ayw"/>
+                            <constraint firstItem="5YI-PW-V1K" firstAttribute="top" secondItem="Nwr-L1-gdl" secondAttribute="bottom" id="lcr-V8-Ayw"/>
                             <constraint firstItem="oPC-Uz-6y0" firstAttribute="leading" secondItem="j9m-bI-cou" secondAttribute="leading" id="r6M-oC-N0Q"/>
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="j9m-bI-cou" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="EdM-ei-HCo"/>
+                    <constraint firstItem="j9m-bI-cou" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="EdM-ei-HCo"/>
                     <constraint firstAttribute="bottom" secondItem="j9m-bI-cou" secondAttribute="bottom" constant="16" id="Ofb-HY-BqK"/>
-                    <constraint firstItem="j9m-bI-cou" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Ttf-v4-r93"/>
-                    <constraint firstAttribute="trailing" secondItem="j9m-bI-cou" secondAttribute="trailing" constant="16" id="koq-jt-Jht"/>
+                    <constraint firstItem="j9m-bI-cou" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="Ttf-v4-r93"/>
+                    <constraint firstAttribute="trailing" secondItem="j9m-bI-cou" secondAttribute="trailing" constant="24" id="koq-jt-Jht"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -170,4 +175,18 @@
             <point key="canvasLocation" x="268.84057971014494" y="96.763392857142847"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="confirmedIcon" width="12" height="12"/>
+        <image name="deathsIcon" width="12" height="12"/>
+        <image name="recoveredIcon" width="12" height="12"/>
+        <namedColor name="covidDarkGray">
+            <color red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="covidGreen">
+            <color red="0.18823529411764706" green="0.78431372549019607" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="covidPink">
+            <color red="1" green="0.31372549019607843" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

@@ -27,4 +27,3 @@ struct JsonTranslationLayer: Translatable {
         return decoder
     }
 }
-

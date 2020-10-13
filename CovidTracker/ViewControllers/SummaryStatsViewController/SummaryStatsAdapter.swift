@@ -10,7 +10,8 @@ import UIKit
 
 protocol SummaryStatsListProtocol {
     var isSearching: Bool { get }
-    func retrieveGlobalStats() -> SummaryRecord
+    var summaryStats: SummaryStats { get }
+    
     func countryStats(at indexPath: IndexPath) -> CountryStats
     func didSelectItem(at indexPath: IndexPath)
     func wilDisplayItem(at indexPath: IndexPath)
@@ -31,6 +32,7 @@ extension SummaryStatsAdapter: UITableViewDataSource {
     var isSearching: Bool {
         delegate.isSearching
     }
+    
     private enum CellSection: Int, CaseIterable {
         case global = 0
         case country = 1
@@ -38,7 +40,7 @@ extension SummaryStatsAdapter: UITableViewDataSource {
         var rowHeight: CGFloat {
             switch self {
             case .global:
-                return 250
+                return 230
             default:
                 return 80
             }
@@ -91,15 +93,17 @@ extension SummaryStatsAdapter: UITableViewDataSource {
     private func countryStatsCell(_ tableView: UITableView, atIndexPath indexPath: IndexPath) -> SummaryCountryStatsCell {
         let countryStats = delegate.countryStats(at: indexPath)
         let cell = tableView.dequeuCellOfType(SummaryCountryStatsCell.self)
-        cell.configureCell(countryStats: countryStats)
+        cell.configureCell(countryStats: countryStats, date: delegate.summaryStats.date)
         
         return cell
     }
     
     private func globalStatsCell(_ tableView: UITableView, atIndexPath indexPath: IndexPath) -> SummaryGlobalStatsCell {
-        let globalStats = delegate.retrieveGlobalStats()
+        let globalStats = delegate.summaryStats.global
         let cell = tableView.dequeuCellOfType(SummaryGlobalStatsCell.self)
-        cell.configureCell(globalStats: globalStats)
+        cell.configureCell(globalStats: globalStats, date: delegate.summaryStats.date)
+        cell.selectionStyle = .none
+        cell.isUserInteractionEnabled = false
         
         return cell
     }

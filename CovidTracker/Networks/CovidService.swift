@@ -36,4 +36,34 @@ extension CovidService: CovidNetworkable {
             }
         })
     }
+    
+    func fetchCountryDetails(slug: String, completion: @escaping ([CountryStats]?, Error?) -> Void) {
+        provider.request(CovidTarget.fetchCountryDetails(countrySlug: slug), completion: { (response) in
+            switch response {
+            case .failure(let error):
+                completion(nil, error)
+            case .success(let response):
+                do {
+                    let optionalData = try self.translationLayer.decode([OptionalObject<CountryStats>].self, fromData: response.data)
+                    let data = optionalData.compactMap { $0.value }
+                    completion(data, nil)
+                } catch let error {
+                    completion(nil, error)
+                }
+            }
+        })
+    }
+}
+
+public struct OptionalObject<Base: Decodable>: Decodable {
+    public let value: Base?
+
+    public init(from decoder: Decoder) throws {
+        do {
+            let container = try decoder.singleValueContainer()
+            self.value = try container.decode(Base.self)
+        } catch {
+            self.value = nil
+        }
+    }
 }

@@ -9,18 +9,16 @@
 import UIKit
 
 class SummaryGlobalStatsCell: UITableViewCell {
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var confirmedLabel: UILabel!
     @IBOutlet weak var recoveredLabel: UILabel!
     @IBOutlet weak var deathsLabel: UILabel!
     
-    func configureCell(globalStats: SummaryRecord) {
-//        dateLabel.text = SummaryRecord.date
+    func configureCell(globalStats: SummaryRecord, date: Date) {
         let totalRecords = globalStats.totalRecords
         confirmedLabel.text = totalRecords.confirmed.formattedWithSeparator
         recoveredLabel.text = totalRecords.recovered.formattedWithSeparator
         deathsLabel.text = totalRecords.deaths.formattedWithSeparator
+        dateLabel.text = date.string
     }
-    
 }

@@ -16,4 +16,12 @@ extension Country: Decodable {
         case name = "Country"
         case slug = "Slug"
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        if let slugValue = try? container.decode(String.self, forKey: .slug) {
+            self.slug = slugValue
+        }
+    }
 }

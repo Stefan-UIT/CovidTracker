@@ -19,4 +19,11 @@ class MainCoordinator: Coordinator {
         viewController.coordinator = self
         navigationController.pushViewController(viewController, animated: false)
     }
+    
+    func redirectToCountryDetailVC(withCountry countryStats: CountryStats) {
+        let countryDetailedStatsVC = CountryDetailedStatsViewController.instantiate()
+        countryDetailedStatsVC.countryStats = countryStats
+        countryDetailedStatsVC.coordinator = self
+        navigationController.pushViewController(countryDetailedStatsVC, animated: true)
+    }
 }
