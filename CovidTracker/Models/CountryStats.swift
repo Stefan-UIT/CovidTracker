@@ -33,3 +33,4 @@ extension CountryStats: Decodable {
         self.date = try container.decode(Date.self, forKey: .date)
     }
 }
+

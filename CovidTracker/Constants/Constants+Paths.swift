@@ -24,3 +24,10 @@ struct Keys {
     static let applicationJson = "application/json"
     static let main = "Main"
 }
+
+enum Constants {
+    enum InitalData {
+        static let summaryStats = SummaryStats(global: summaryRecord, countries: [CountryStats](), date: Date())
+        static let summaryRecord = SummaryRecord(newRecords: Record(), totalRecords: Record())
+    }
+}

@@ -36,6 +36,8 @@
 		2E58265E25330AE3003D3526 /* SummaryGlobalStatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E58265C25330AE3003D3526 /* SummaryGlobalStatsCell.xib */; };
 		2E58266025330C7C003D3526 /* Formatter+Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58265F25330C7C003D3526 /* Formatter+Number.swift */; };
 		2E58266225330E11003D3526 /* Int+Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58266125330E11003D3526 /* Int+Separator.swift */; };
+		2E80A13A25373503001144FA /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80A13925373503001144FA /* LoadingViewController.swift */; };
+		2E80A13C253746BF001144FA /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E80A13B253746BF001144FA /* UIView+Shimmer.swift */; };
 		2EFD84B92532BE87007DAE81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFD84B82532BE87007DAE81 /* AppDelegate.swift */; };
 		2EFD84BB2532BE87007DAE81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFD84BA2532BE87007DAE81 /* SceneDelegate.swift */; };
 		2EFD84C02532BE87007DAE81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EFD84BE2532BE87007DAE81 /* Main.storyboard */; };
@@ -94,6 +96,8 @@
 		2E58265C25330AE3003D3526 /* SummaryGlobalStatsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryGlobalStatsCell.xib; sourceTree = "<group>"; };
 		2E58265F25330C7C003D3526 /* Formatter+Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Number.swift"; sourceTree = "<group>"; };
 		2E58266125330E11003D3526 /* Int+Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Separator.swift"; sourceTree = "<group>"; };
+		2E80A13925373503001144FA /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		2E80A13B253746BF001144FA /* UIView+Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
 		2EFD84B52532BE87007DAE81 /* CovidTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFD84B82532BE87007DAE81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EFD84BA2532BE87007DAE81 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +208,14 @@
 			path = SummaryGlobalStatsCell;
 			sourceTree = "<group>";
 		};
+		2E80A138253734CD001144FA /* LoadingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2E80A13925373503001144FA /* LoadingViewController.swift */,
+			);
+			path = LoadingViewController;
+			sourceTree = "<group>";
+		};
 		2EFD84AC2532BE87007DAE81 = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +295,7 @@
 				2E0BF590253581BF00018ED3 /* UIImage+Custom.swift */,
 				2E0BF592253589EE00018ED3 /* Date+String.swift */,
 				2E0BF59C25361A2B00018ED3 /* UIViewController+Alerts.swift */,
+				2E80A13B253746BF001144FA /* UIView+Shimmer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -347,6 +360,7 @@
 		2EFD84E42532CA9B007DAE81 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E80A138253734CD001144FA /* LoadingViewController */,
 				2E0BF5942535ED5C00018ED3 /* CountryDetailedStatsViewController */,
 				2E5826412532ECDD003D3526 /* SummaryStatsViewController */,
 				2EFD84E72532CAF5007DAE81 /* BaseViewController.swift */,
@@ -568,6 +582,7 @@
 				2EFD84EE2532CDAD007DAE81 /* Constants+Paths.swift in Sources */,
 				2E5826452532ED11003D3526 /* SummaryStatsAdapter.swift in Sources */,
 				2E58261F2532D2C7003D3526 /* Country.swift in Sources */,
+				2E80A13C253746BF001144FA /* UIView+Shimmer.swift in Sources */,
 				2E5826402532E98E003D3526 /* UITableView+Cell.swift in Sources */,
 				2E0BF5962535ED8300018ED3 /* CountryDetailedStatsViewController.swift in Sources */,
 				2E5826252532D3DD003D3526 /* CountryStats.swift in Sources */,
@@ -582,6 +597,7 @@
 				2E58265D25330AE3003D3526 /* SummaryGlobalStatsCell.swift in Sources */,
 				2E5826272532D4A5003D3526 /* SummaryStats.swift in Sources */,
 				2E58262E2532DD21003D3526 /* CovidTarget.swift in Sources */,
+				2E80A13A25373503001144FA /* LoadingViewController.swift in Sources */,
 				2E5826342532DDC8003D3526 /* Translatable.swift in Sources */,
 				2E58262B2532DCC7003D3526 /* CovidNetworkable.swift in Sources */,
 				2EFD84E62532CAD4007DAE81 /* Coordinator.swift in Sources */,

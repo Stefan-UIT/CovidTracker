@@ -14,14 +14,24 @@ protocol SummaryViewModelDelegate: class {
     func summaryViewModel(_ viewModel: SummaryViewModel, didFailWithError error: Error)
 }
 
+// MARK: - MoviesViewModelDelegate Optional Functions
+extension SummaryViewModelDelegate {
+    var isSearching: Bool { false }
+    func didFinishFetchingData(in viewModel: SummaryViewModel) {}
+}
+
 final class SummaryViewModel {
-    private var provider: CovidNetworkable!
-    private (set) var summaryStats: SummaryStats!
-    var filteredCountryStats = [CountryStats]()
+    private var provider: CovidNetworkable
+    private (set) var summaryStats: SummaryStats
+    private var filteredCountryStats: [CountryStats]
     
     weak var delegate: SummaryViewModelDelegate?
     
-    init(provider: CovidNetworkable = CovidService()) {
+    init(summaryStats: SummaryStats = Constants.InitalData.summaryStats,
+         filteredCountryStats: [CountryStats] = [CountryStats](),
+         provider: CovidNetworkable = CovidService()) {
+        self.summaryStats = summaryStats
+        self.filteredCountryStats = filteredCountryStats
         self.provider = provider
     }
     
@@ -34,6 +44,9 @@ final class SummaryViewModel {
                 return
             }
             strongSelf.summaryStats = data
+            strongSelf.summaryStats.countries.sort {
+                $0.record.confirmed > $1.record.confirmed
+            }
             strongSelf.delegate?.didLoadDataSuccessfully(in: strongSelf)
         }
     }

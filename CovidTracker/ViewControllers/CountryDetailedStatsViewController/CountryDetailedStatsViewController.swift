@@ -28,12 +28,13 @@ class CountryDetailedStatsViewController: BaseViewController {
     }
     
     func setupMapView() {
+        mapView.delegate = self
         let location = CLLocationCoordinate2D(latitude: -30.56, longitude: 22.94)
         let anotation = MKPointAnnotation()
         anotation.title = countryStats.country.name
         anotation.coordinate = location
-        
         mapView.addAnnotation(anotation)
+        mapView.showAnnotations([anotation], animated: true)
     }
     
     func initViewModel() {
@@ -47,6 +48,24 @@ class CountryDetailedStatsViewController: BaseViewController {
         tableView.delegate = self
         tableView.register(CountryDetailedStatsCell.uiNib(),
         forCellReuseIdentifier: CountryDetailedStatsCell.identifier)
+    }
+}
+
+extension CountryDetailedStatsViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+
+        return annotationView
     }
 }
 
@@ -75,8 +94,11 @@ extension CountryDetailedStatsViewController: UITableViewDataSource {
 }
 
 extension CountryDetailedStatsViewController: CountryDetailedStatsViewModelDelegate {
+    func willLoadData(in viewModel: CountryDetailedStatsViewModel) {
+        tableView.showLoadingIndicator()
+    }
     func didFinishFetchingData(in viewModel: CountryDetailedStatsViewModel) {
-        //
+        tableView.hideLoadingIndicator()
     }
     
     func didLoadDataSuccessfully(in viewModel: CountryDetailedStatsViewModel) {
@@ -84,11 +106,12 @@ extension CountryDetailedStatsViewController: CountryDetailedStatsViewModelDeleg
     }
     
     func viewModel(_ viewModel: CountryDetailedStatsViewModel, didFailWithError error: Error) {
-        //
+        showAlert(message: error.localizedDescription)
     }
 }
 
 protocol CountryDetailedStatsViewModelDelegate: class {
+    func willLoadData(in viewModel: CountryDetailedStatsViewModel)
     func didFinishFetchingData(in viewModel: CountryDetailedStatsViewModel)
     func didLoadDataSuccessfully(in viewModel: CountryDetailedStatsViewModel)
     func viewModel(_ viewModel: CountryDetailedStatsViewModel, didFailWithError error: Error)
@@ -109,6 +132,7 @@ class CountryDetailedStatsViewModel {
     }
     
     func fetchCountryDetails() {
+        delegate?.willLoadData(in: self)
         provider.fetchCountryDetails(slug: countrySlug) { [weak self] (responseData, error) in
             guard let strongSelf = self else { return }
             strongSelf.delegate?.didFinishFetchingData(in: strongSelf)
