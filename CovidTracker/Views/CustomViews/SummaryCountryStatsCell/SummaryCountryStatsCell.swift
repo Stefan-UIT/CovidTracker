@@ -24,9 +24,3 @@ class SummaryCountryStatsCell: UITableViewCell {
         dateLabel.text = date.string
     }
 }
-
-extension UITableViewCell: UINibable {
-    static func uiNib() -> UINib {
-        return UINib(nibName: self.identifier, bundle: nil)
-    }
-}

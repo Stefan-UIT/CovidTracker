@@ -15,6 +15,7 @@ final class SummaryStatsViewController: BaseViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private var adapter: SummaryStatsAdapter!
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
@@ -39,7 +40,7 @@ final class SummaryStatsViewController: BaseViewController {
     }
     
     private func setupUI() {
-        title = "Summary"
+        title = Constants.Text.summary
         setupTableView()
         setupSearchViewController()
     }
@@ -47,7 +48,7 @@ final class SummaryStatsViewController: BaseViewController {
     private func setupSearchViewController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = Constants.Text.search
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = false
@@ -60,12 +61,13 @@ final class SummaryStatsViewController: BaseViewController {
         forCellReuseIdentifier: SummaryGlobalStatsCell.identifier)
     }
     
-    func filterContentForSearchText(_ searchText: String) {
+    private func filterContentForSearchText(_ searchText: String) {
         viewModel.search(withText: searchText)
         tableView.reloadData()
     }
 }
 
+// MARK: - UISearchResultsUpdating
 extension SummaryStatsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
@@ -73,6 +75,7 @@ extension SummaryStatsViewController: UISearchResultsUpdating {
     }
 }
 
+// MARK: - SummaryViewModelDelegate
 extension SummaryStatsViewController: SummaryViewModelDelegate {
     var isSearching: Bool {
         searchController.isActive && !isSearchBarEmpty
@@ -110,16 +113,8 @@ extension SummaryStatsViewController: SummaryStatsListProtocol {
         coordinator?.redirectToCountryDetailVC(withCountry: countryStats)
     }
     
-    func didSelectPreview(at countryStats: CountryStats) {
-        coordinator?.redirectToCountryDetailVC(withCountry: countryStats)
-    }
-    
     func didSelectPreview(withViewController viewController: CountryDetailedStatsViewController) {
         coordinator?.push(viewController: viewController)
-    }
-    
-    func wilDisplayItem(at indexPath: IndexPath) {
-        
     }
     
     func retrieveNumberOfItems() -> Int {

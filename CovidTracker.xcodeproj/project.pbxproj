@@ -14,6 +14,8 @@
 		2E0BF59A2535F45E00018ED3 /* CountryDetailedStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BF5982535F45E00018ED3 /* CountryDetailedStatsCell.swift */; };
 		2E0BF59B2535F45E00018ED3 /* CountryDetailedStatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E0BF5992535F45E00018ED3 /* CountryDetailedStatsCell.xib */; };
 		2E0BF59D25361A2B00018ED3 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0BF59C25361A2B00018ED3 /* UIViewController+Alerts.swift */; };
+		2E3BD514253887CE00D973A7 /* OptionalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BD513253887CE00D973A7 /* OptionalObject.swift */; };
+		2E3BD51625388ECB00D973A7 /* CountryDetailedStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BD51525388ECB00D973A7 /* CountryDetailedStatsViewModel.swift */; };
 		2E58261F2532D2C7003D3526 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58261E2532D2C7003D3526 /* Country.swift */; };
 		2E5826212532D2F1003D3526 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5826202532D2F1003D3526 /* Record.swift */; };
 		2E5826232532D311003D3526 /* SummaryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5826222532D311003D3526 /* SummaryRecord.swift */; };
@@ -74,6 +76,8 @@
 		2E0BF5982535F45E00018ED3 /* CountryDetailedStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailedStatsCell.swift; sourceTree = "<group>"; };
 		2E0BF5992535F45E00018ED3 /* CountryDetailedStatsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryDetailedStatsCell.xib; sourceTree = "<group>"; };
 		2E0BF59C25361A2B00018ED3 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		2E3BD513253887CE00D973A7 /* OptionalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalObject.swift; sourceTree = "<group>"; };
+		2E3BD51525388ECB00D973A7 /* CountryDetailedStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailedStatsViewModel.swift; sourceTree = "<group>"; };
 		2E58261E2532D2C7003D3526 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2E5826202532D2F1003D3526 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		2E5826222532D311003D3526 /* SummaryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryRecord.swift; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				2E5826282532D56F003D3526 /* SummaryViewModel.swift */,
+				2E3BD51525388ECB00D973A7 /* CountryDetailedStatsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				2E5826222532D311003D3526 /* SummaryRecord.swift */,
 				2E5826242532D3DD003D3526 /* CountryStats.swift */,
 				2E5826262532D4A5003D3526 /* SummaryStats.swift */,
+				2E3BD513253887CE00D973A7 /* OptionalObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -585,9 +591,11 @@
 				2E80A13C253746BF001144FA /* UIView+Shimmer.swift in Sources */,
 				2E5826402532E98E003D3526 /* UITableView+Cell.swift in Sources */,
 				2E0BF5962535ED8300018ED3 /* CountryDetailedStatsViewController.swift in Sources */,
+				2E3BD514253887CE00D973A7 /* OptionalObject.swift in Sources */,
 				2E5826252532D3DD003D3526 /* CountryStats.swift in Sources */,
 				2E5826212532D2F1003D3526 /* Record.swift in Sources */,
 				2E5826232532D311003D3526 /* SummaryRecord.swift in Sources */,
+				2E3BD51625388ECB00D973A7 /* CountryDetailedStatsViewModel.swift in Sources */,
 				2E0BF593253589EE00018ED3 /* Date+String.swift in Sources */,
 				2EFD84E82532CAF5007DAE81 /* BaseViewController.swift in Sources */,
 				2E58266225330E11003D3526 /* Int+Separator.swift in Sources */,
@@ -778,7 +786,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Trung-Vo.CovidTracker";
+				PRODUCT_BUNDLE_IDENTIFIER = "Trung-Vo.Covid-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -796,7 +804,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Trung-Vo.CovidTracker";
+				PRODUCT_BUNDLE_IDENTIFIER = "Trung-Vo.Covid-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

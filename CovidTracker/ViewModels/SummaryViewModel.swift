@@ -20,6 +20,7 @@ extension SummaryViewModelDelegate {
     func didFinishFetchingData(in viewModel: SummaryViewModel) {}
 }
 
+// MARK: - SummaryViewModel
 final class SummaryViewModel {
     private var provider: CovidNetworkable
     private (set) var summaryStats: SummaryStats
@@ -33,6 +34,16 @@ final class SummaryViewModel {
         self.summaryStats = summaryStats
         self.filteredCountryStats = filteredCountryStats
         self.provider = provider
+    }
+    
+    func search(withText searchText: String) {
+        filteredCountryStats = summaryStats.countries.filter({
+            $0.country.name.lowercased().contains(searchText.lowercased())
+        })
+    }
+    
+    func countryStats(at position: Int) -> CountryStats {
+        isSearching ? filteredCountryStats[position] : summaryStats.countries[position]
     }
     
     func fetchSummaryStats() {
@@ -50,21 +61,15 @@ final class SummaryViewModel {
             strongSelf.delegate?.didLoadDataSuccessfully(in: strongSelf)
         }
     }
-    
+}
+
+// MARK: - SummaryViewModel Computed Variables
+extension SummaryViewModel {
     private var isSearching: Bool {
         delegate?.isSearching ?? false
     }
     
-    func search(withText searchText: String) {
-        filteredCountryStats = summaryStats.countries.filter({$0.country.name.lowercased().contains(searchText.lowercased())})
-    }
-    
     var numberOfCountryStats: Int {
         isSearching ? filteredCountryStats.count : summaryStats.countries.count
-    }
-    
-    func countryStats(at position: Int) -> CountryStats {
-        isSearching ? filteredCountryStats[position] : summaryStats.countries[position]
-        
     }
 }

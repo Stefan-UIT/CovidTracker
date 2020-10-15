@@ -13,4 +13,6 @@ extension UIImage {
     static let deathsIcon = UIImage(named: "deathsIcon")
     static let activeIcon = UIImage(named: "activeIcon")
     static let recoveredIcon = UIImage(named: "recoveredIcon")
+    static let shareIcon = UIImage(systemName: "square.and.arrow.up")
+    static let copyIcon = UIImage(systemName: "doc.on.doc")
 }

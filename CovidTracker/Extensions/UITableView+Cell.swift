@@ -22,3 +22,9 @@ extension UITableViewCell {
         return String(describing: self)
     }
 }
+
+extension UITableViewCell: UINibable {
+    static func uiNib() -> UINib {
+        return UINib(nibName: self.identifier, bundle: nil)
+    }
+}

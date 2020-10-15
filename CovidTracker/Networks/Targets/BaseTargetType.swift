@@ -1,4 +1,3 @@
-
 //
 //  BaseTargetType.swift
 //  CovidTracker

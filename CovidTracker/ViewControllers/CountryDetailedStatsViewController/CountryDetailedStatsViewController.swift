@@ -22,13 +22,16 @@ class CountryDetailedStatsViewController: BaseViewController {
         super.viewDidLoad()
         initViewModel()
         initTableView()
+        setupUI()
+    }
+    
+    private func setupUI() {
         setupMapView()
         titleLabel.text = countryStats.country.name
         subtitleLabel.text = countryStats.country.slug
     }
     
-    func setupMapView() {
-        mapView.delegate = self
+    private func setupMapView() {
         let location = CLLocationCoordinate2D(latitude: -30.56, longitude: 22.94)
         let anotation = MKPointAnnotation()
         anotation.title = countryStats.country.name
@@ -37,13 +40,13 @@ class CountryDetailedStatsViewController: BaseViewController {
         mapView.showAnnotations([anotation], animated: true)
     }
     
-    func initViewModel() {
+    private func initViewModel() {
         viewModel = CountryDetailedStatsViewModel(slug: countryStats.country.slug)
         viewModel.delegate = self
         viewModel.fetchCountryDetails()
     }
     
-    func initTableView() {
+    private func initTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(CountryDetailedStatsCell.uiNib(),
@@ -51,30 +54,14 @@ class CountryDetailedStatsViewController: BaseViewController {
     }
 }
 
-extension CountryDetailedStatsViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard annotation is MKPointAnnotation else { return nil }
-
-        let identifier = "Annotation"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-
-        if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView!.canShowCallout = true
-        } else {
-            annotationView!.annotation = annotation
-        }
-
-        return annotationView
-    }
-}
-
+// MARK: - UITableViewDelegate
 extension CountryDetailedStatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         120
     }
 }
 
+// MARK: - UITableViewDataSource
 extension CountryDetailedStatsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.statsArray.count
@@ -93,6 +80,7 @@ extension CountryDetailedStatsViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - CountryDetailedStatsViewModelDelegate
 extension CountryDetailedStatsViewController: CountryDetailedStatsViewModelDelegate {
     func willLoadData(in viewModel: CountryDetailedStatsViewModel) {
         tableView.showLoadingIndicator()
@@ -107,41 +95,5 @@ extension CountryDetailedStatsViewController: CountryDetailedStatsViewModelDeleg
     
     func viewModel(_ viewModel: CountryDetailedStatsViewModel, didFailWithError error: Error) {
         showAlert(message: error.localizedDescription)
-    }
-}
-
-protocol CountryDetailedStatsViewModelDelegate: class {
-    func willLoadData(in viewModel: CountryDetailedStatsViewModel)
-    func didFinishFetchingData(in viewModel: CountryDetailedStatsViewModel)
-    func didLoadDataSuccessfully(in viewModel: CountryDetailedStatsViewModel)
-    func viewModel(_ viewModel: CountryDetailedStatsViewModel, didFailWithError error: Error)
-}
-
-class CountryDetailedStatsViewModel {
-    private var provider: CovidNetworkable
-    private (set) var statsArray: [CountryStats]
-    var countrySlug: String
-    weak var delegate: CountryDetailedStatsViewModelDelegate?
-    
-    init(slug: String,
-         statsArray: [CountryStats] = [CountryStats](),
-         provider: CovidNetworkable = CovidService()) {
-        self.provider = provider
-        self.countrySlug = slug
-        self.statsArray = statsArray
-    }
-    
-    func fetchCountryDetails() {
-        delegate?.willLoadData(in: self)
-        provider.fetchCountryDetails(slug: countrySlug) { [weak self] (responseData, error) in
-            guard let strongSelf = self else { return }
-            strongSelf.delegate?.didFinishFetchingData(in: strongSelf)
-            guard let data = responseData else {
-                strongSelf.delegate?.viewModel(strongSelf, didFailWithError: error!)
-                return
-            }
-            strongSelf.statsArray = data.reversed()
-            strongSelf.delegate?.didLoadDataSuccessfully(in: strongSelf)
-        }
     }
 }

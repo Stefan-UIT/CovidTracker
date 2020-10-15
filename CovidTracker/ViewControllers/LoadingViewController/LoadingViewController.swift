@@ -9,9 +9,11 @@
 import UIKit
 
 class LoadingViewController: BaseViewController {
-    private let viewModel = SummaryViewModel()
-
     @IBOutlet weak var loadingImageView: UIImageView!
+    
+    private let viewModel = SummaryViewModel()
+    
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -26,6 +28,7 @@ class LoadingViewController: BaseViewController {
     }
 }
 
+// MARK: - SummaryViewModelDelegate
 extension LoadingViewController: SummaryViewModelDelegate {
     func didLoadDataSuccessfully(in viewModel: SummaryViewModel) {
         coordinator?.redirectToSummaryStatsVC(viewModel: viewModel)
