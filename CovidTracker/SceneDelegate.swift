@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func setupCoordinator() -> UINavigationController {
         let navController = UINavigationController()
-//        navController.applyTheme()
+        navController.navigationBar.tintColor = UIColor.covidPink
         coordinator = MainCoordinator(navigationController: navController)
         return navController
     }

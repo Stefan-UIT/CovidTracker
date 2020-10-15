@@ -18,7 +18,6 @@ class CountryDetailedStatsViewModelDelegateMock {
     var error: Error?
 }
 
-
 extension CountryDetailedStatsViewModelDelegateMock: CountryDetailedStatsViewModelDelegate {
     func willLoadData(in viewModel: CountryDetailedStatsViewModel) {
         isWillLoadSuccessfully = true
@@ -35,4 +34,3 @@ extension CountryDetailedStatsViewModelDelegateMock: CountryDetailedStatsViewMod
         isDidLoadDataSuccessfully = true
     }
 }
-
