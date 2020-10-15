@@ -85,12 +85,12 @@ extension SummaryStatsAdapter: UITableViewDelegate {
             let shareAction = UIAction(
                 title: Constants.Text.share,
               image: UIImage.shareIcon) { _ in
-                // share the task
+                // TODO: implement share
             }
             let copyAction = UIAction(
-              title: Constants.Text.share,
+              title: Constants.Text.copy,
               image: UIImage.copyIcon) { _ in
-                // copy the task content
+                // TODO: implement Copy
             }
             return UIMenu(title: "", children: [shareAction, copyAction])
         }

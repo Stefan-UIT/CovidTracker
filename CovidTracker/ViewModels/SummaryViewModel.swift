@@ -24,7 +24,7 @@ extension SummaryViewModelDelegate {
 final class SummaryViewModel {
     private var provider: CovidNetworkable
     private (set) var summaryStats: SummaryStats
-    private var filteredCountryStats: [CountryStats]
+    private (set) var filteredCountryStats: [CountryStats]
     
     weak var delegate: SummaryViewModelDelegate?
     

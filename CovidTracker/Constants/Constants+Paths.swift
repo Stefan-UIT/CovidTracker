@@ -24,17 +24,3 @@ enum Keys {
     static let applicationJson = "application/json"
     static let main = "Main"
 }
-
-enum Constants {
-    enum InitalData {
-        static let summaryStats = SummaryStats(global: summaryRecord, countries: [CountryStats](), date: Date())
-        static let summaryRecord = SummaryRecord(newRecords: Record(), totalRecords: Record())
-    }
-    
-    enum Text {
-        static let share = "Share"
-        static let copy = "Copy"
-        static let search = "Search"
-        static let summary = "Summary"
-    }
-}

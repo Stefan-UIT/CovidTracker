@@ -42,6 +42,11 @@ extension CovidTarget: TargetType {
     
     // For unit test
     var sampleData: Data {
-        Data()
+        switch self {
+        case .fetchSummaryStats:
+            return SampleData.summaryStats.data
+        case .fetchCountryDetails:
+            return SampleData.countryDetailedStats.data
+        }
     }
 }

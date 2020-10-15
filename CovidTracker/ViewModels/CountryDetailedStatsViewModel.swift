@@ -23,7 +23,7 @@ class CountryDetailedStatsViewModel {
     var countrySlug: String
     weak var delegate: CountryDetailedStatsViewModelDelegate?
     
-    init(slug: String,
+    init(slug: String = "",
          statsArray: [CountryStats] = [CountryStats](),
          provider: CovidNetworkable = CovidService()) {
         self.provider = provider

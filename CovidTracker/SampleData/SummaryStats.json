@@ -1,0 +1,25 @@
+{
+	"Message": "",
+	"Global": {
+		"NewConfirmed": 380362,
+		"TotalConfirmed": 38503719,
+		"NewDeaths": 6004,
+		"TotalDeaths": 1092071,
+		"NewRecovered": 211854,
+		"TotalRecovered": 26672436
+	},
+	"Countries": [{
+		"Country": "Afghanistan",
+		"CountryCode": "AF",
+		"Slug": "afghanistan",
+		"NewConfirmed": 66,
+		"TotalConfirmed": 39994,
+		"NewDeaths": 1,
+		"TotalDeaths": 1481,
+		"NewRecovered": 46,
+		"TotalRecovered": 33354,
+		"Date": "2020-10-15T15:22:38Z",
+		"Premium": {}
+	}],
+    "Date": "2020-10-15T16:21:26Z"
+}
