@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIColor {
-    static let covidPink = UIColor(named: "covidPink")
-    static let covidOrange = UIColor(named: "covidOrange")
-    static let covidBlack = UIColor(named: "covidBlack")
-    static let covidGreen = UIColor(named: "covidGreen")
+    static let covidPink = UIColor(named: "covidPink")!
+    static let covidOrange = UIColor(named: "covidOrange")!
+    static let covidBlack = UIColor(named: "covidBlack")!
+    static let covidGreen = UIColor(named: "covidGreen")!
 }
