@@ -1,0 +1,14 @@
+[{
+    "Country": "India",
+    "CountryCode": "IN",
+    "Province": "",
+    "City": "",
+    "CityCode": "",
+    "Lat": "20.59",
+    "Lon": "78.96",
+    "Confirmed": 7307097,
+    "Deaths": 111266,
+    "Recovered": 6383441,
+    "Active": 812390,
+    "Date": "2020-10-14T00:00:00Z"
+}]
