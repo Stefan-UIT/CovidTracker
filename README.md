@@ -6,6 +6,9 @@ An application to let users search freely for Covid-19 data.
 
 ![](demo_files/Loading.gif)    ![](demo_files/SummaryStats.gif)   ![](demo_files/CountryDetail.gif)
 
+##  Demo video
+https://youtu.be/SJwVQLwxRBA
+
 ##  Requirements
 - iOS 13+
 - Xcode 11
