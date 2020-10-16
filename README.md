@@ -13,6 +13,9 @@ https://youtu.be/SJwVQLwxRBA
 - iOS 13+
 - Xcode 11
 
+##  Installation
+Download the project and open ```CovidTracker.xcworkspace```.
+
 ##  Resources
 - ``` SwiftLint ```: a tool to enforce Swift style and conventions. Keeping a codebase consistent and maintainable.
 - ``` Moya ``` : a network abstraction layer that leverages Swift’s APIs like enums to make working with the network layer better than ever.
