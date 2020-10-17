@@ -184,16 +184,16 @@
         <image name="deathsIcon" width="12" height="12"/>
         <image name="recoveredIcon" width="12" height="12"/>
         <namedColor name="covidDarkGray">
-            <color red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.25499999523162842" green="0.25499999523162842" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="covidGreen">
-            <color red="0.18823529411764706" green="0.78431372549019607" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.18799999356269836" green="0.7839999794960022" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="covidOrange">
-            <color red="1" green="0.69803921568627447" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.69800001382827759" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="covidPink">
-            <color red="1" green="0.31372549019607843" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.31400001049041748" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

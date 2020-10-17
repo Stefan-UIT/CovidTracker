@@ -46,7 +46,7 @@ extension SummaryStatsAdapter: UITableViewDataSource {
             case .global:
                 return 230
             default:
-                return 80
+                return 120
             }
         }
     }
