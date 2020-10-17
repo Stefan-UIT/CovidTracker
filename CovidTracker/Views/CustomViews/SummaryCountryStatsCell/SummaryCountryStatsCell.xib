@@ -27,10 +27,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3yh-wp-Ryk">
-                                <rect key="frame" x="0.0" y="40" width="329" height="20"/>
+                                <rect key="frame" x="0.0" y="40" width="228" height="20"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S14-i8-s8R">
-                                        <rect key="frame" x="0.0" y="0.0" width="109.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="114" height="20"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirmedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Sn7-yB-h7Q">
                                                 <rect key="frame" x="0.0" y="5" width="10" height="10"/>
@@ -56,7 +56,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIY-FD-5ha">
-                                        <rect key="frame" x="109.5" y="0.0" width="110" height="20"/>
+                                        <rect key="frame" x="114" y="0.0" width="114" height="20"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recoveredIcon" translatesAutoresizingMaskIntoConstraints="NO" id="OqD-8K-E3O">
                                                 <rect key="frame" x="0.0" y="5" width="10" height="10"/>
@@ -81,54 +81,59 @@
                                             <constraint firstItem="OqD-8K-E3O" firstAttribute="centerY" secondItem="EIY-FD-5ha" secondAttribute="centerY" id="dl3-Cm-ABa"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDU-Q7-jxB">
-                                        <rect key="frame" x="219.5" y="0.0" width="109.5" height="20"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deathsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gCj-w2-Y1D">
-                                                <rect key="frame" x="0.0" y="5" width="10" height="10"/>
-                                                <color key="tintColor" name="covidDarkGray"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="10" id="K8C-Kc-bJi"/>
-                                                    <constraint firstAttribute="width" secondItem="gCj-w2-Y1D" secondAttribute="height" multiplier="1:1" id="veD-pC-bqP"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3D-kU-aPL">
-                                                <rect key="frame" x="14" y="1.5" width="37" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                <color key="textColor" name="covidDarkGray"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="gCj-w2-Y1D" firstAttribute="centerY" secondItem="NDU-Q7-jxB" secondAttribute="centerY" id="5cU-uc-tRv"/>
-                                            <constraint firstItem="Q3D-kU-aPL" firstAttribute="leading" secondItem="gCj-w2-Y1D" secondAttribute="trailing" constant="4" id="Nnv-mZ-h5T"/>
-                                            <constraint firstItem="gCj-w2-Y1D" firstAttribute="leading" secondItem="NDU-Q7-jxB" secondAttribute="leading" id="jNo-Ba-qMi"/>
-                                            <constraint firstItem="Q3D-kU-aPL" firstAttribute="centerY" secondItem="gCj-w2-Y1D" secondAttribute="centerY" id="rK1-jx-EFK"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="lJg-QR-cRh"/>
                                 </constraints>
                             </stackView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qS8-j4-wy3">
-                                <rect key="frame" x="298" y="0.0" width="31" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZI-X8-dG7">
+                                <rect key="frame" x="0.0" y="68" width="76" height="20"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deathsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JCb-Mz-CJU">
+                                        <rect key="frame" x="0.0" y="5" width="10" height="10"/>
+                                        <color key="tintColor" name="covidDarkGray"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="Mob-4x-BPK"/>
+                                            <constraint firstAttribute="width" secondItem="JCb-Mz-CJU" secondAttribute="height" multiplier="1:1" id="zia-Q5-C1M"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyo-IT-5Be">
+                                        <rect key="frame" x="14" y="1.5" width="37" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" name="covidDarkGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JCb-Mz-CJU" firstAttribute="leading" secondItem="kZI-X8-dG7" secondAttribute="leading" id="Liu-Fi-WLv"/>
+                                    <constraint firstItem="JCb-Mz-CJU" firstAttribute="centerY" secondItem="kZI-X8-dG7" secondAttribute="centerY" id="lR3-5Q-O1G"/>
+                                    <constraint firstItem="Tyo-IT-5Be" firstAttribute="centerY" secondItem="JCb-Mz-CJU" secondAttribute="centerY" id="lVT-Pk-yrX"/>
+                                    <constraint firstItem="Tyo-IT-5Be" firstAttribute="leading" secondItem="JCb-Mz-CJU" secondAttribute="trailing" constant="4" id="oZ8-LT-8J6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-hs-poJ" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="228" y="11.5" width="93" height="93"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2EU-hs-poJ" secondAttribute="height" multiplier="1:1" id="goS-j7-PFu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PRy-LJ-mYe" firstAttribute="top" secondItem="NmR-SD-idk" secondAttribute="top" id="2xd-Ql-efs"/>
-                            <constraint firstAttribute="trailing" secondItem="qS8-j4-wy3" secondAttribute="trailing" id="Aik-Tk-A2m"/>
-                            <constraint firstItem="qS8-j4-wy3" firstAttribute="top" secondItem="NmR-SD-idk" secondAttribute="top" id="HOz-lU-Rno"/>
+                            <constraint firstItem="kZI-X8-dG7" firstAttribute="height" secondItem="3yh-wp-Ryk" secondAttribute="height" id="NmD-gG-IKk"/>
+                            <constraint firstItem="2EU-hs-poJ" firstAttribute="leading" secondItem="3yh-wp-Ryk" secondAttribute="trailing" id="O0Q-nL-bhp"/>
+                            <constraint firstItem="2EU-hs-poJ" firstAttribute="height" secondItem="NmR-SD-idk" secondAttribute="height" multiplier="0.8" id="Pai-Fz-hnX"/>
+                            <constraint firstAttribute="trailing" secondItem="2EU-hs-poJ" secondAttribute="trailing" constant="8" id="UID-wC-D0x"/>
+                            <constraint firstItem="kZI-X8-dG7" firstAttribute="top" secondItem="3yh-wp-Ryk" secondAttribute="bottom" constant="8" id="W7Y-9Z-afV"/>
                             <constraint firstItem="PRy-LJ-mYe" firstAttribute="leading" secondItem="NmR-SD-idk" secondAttribute="leading" id="Yhy-ki-oO3"/>
+                            <constraint firstItem="2EU-hs-poJ" firstAttribute="centerY" secondItem="NmR-SD-idk" secondAttribute="centerY" id="Z5i-H6-1Dm"/>
                             <constraint firstItem="3yh-wp-Ryk" firstAttribute="top" secondItem="PRy-LJ-mYe" secondAttribute="bottom" constant="16" id="axk-SS-BmK"/>
-                            <constraint firstAttribute="trailing" secondItem="3yh-wp-Ryk" secondAttribute="trailing" id="jgB-Sy-vgx"/>
+                            <constraint firstItem="kZI-X8-dG7" firstAttribute="width" secondItem="S14-i8-s8R" secondAttribute="width" multiplier="0.666667" id="o9j-vu-ePG"/>
                             <constraint firstItem="3yh-wp-Ryk" firstAttribute="leading" secondItem="NmR-SD-idk" secondAttribute="leading" id="pk7-VG-1I4"/>
-                            <constraint firstItem="qS8-j4-wy3" firstAttribute="centerY" secondItem="PRy-LJ-mYe" secondAttribute="centerY" id="z0G-YZ-1vj"/>
+                            <constraint firstItem="kZI-X8-dG7" firstAttribute="leading" secondItem="3yh-wp-Ryk" secondAttribute="leading" id="xgj-n0-7oV"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -143,8 +148,8 @@
             <connections>
                 <outlet property="confirmedLabel" destination="Lfa-VS-xvd" id="oo7-gU-i3g"/>
                 <outlet property="countryNameLabel" destination="PRy-LJ-mYe" id="JKa-52-aoH"/>
-                <outlet property="dateLabel" destination="qS8-j4-wy3" id="UDI-Gw-Pll"/>
-                <outlet property="deathsLabel" destination="Q3D-kU-aPL" id="LNV-fF-IX8"/>
+                <outlet property="deathsLabel" destination="Tyo-IT-5Be" id="xTE-jA-Fox"/>
+                <outlet property="pieChartView" destination="2EU-hs-poJ" id="aIx-p1-Z5f"/>
                 <outlet property="recoveredLabel" destination="6VI-4r-xlQ" id="VJt-j2-QHW"/>
             </connections>
             <point key="canvasLocation" x="264.49275362318843" y="95.089285714285708"/>
@@ -155,13 +160,13 @@
         <image name="deathsIcon" width="12" height="12"/>
         <image name="recoveredIcon" width="12" height="12"/>
         <namedColor name="covidDarkGray">
-            <color red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.25499999523162842" green="0.25499999523162842" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="covidGreen">
-            <color red="0.18823529411764706" green="0.78431372549019607" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.18799999356269836" green="0.7839999794960022" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="covidPink">
-            <color red="1" green="0.31372549019607843" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.31400001049041748" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
