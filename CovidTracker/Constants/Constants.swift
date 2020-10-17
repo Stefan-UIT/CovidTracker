@@ -6,12 +6,17 @@
 //  Copyright © 2020 Trung Vo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Constants {
     enum InitalData {
         static let summaryStats = SummaryStats(global: summaryRecord, countries: [CountryStats](), date: Date())
         static let summaryRecord = SummaryRecord(newRecords: Record(), totalRecords: Record())
+    }
+    
+    enum Screen {
+        static let width = UIScreen.main.bounds.width
+        static let height = UIScreen.main.bounds.height
     }
     
     enum Text {

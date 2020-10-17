@@ -77,7 +77,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vp5-4F-Vp8">
-                                <rect key="frame" x="0.0" y="194" width="414" height="702"/>
+                                <rect key="frame" x="0.0" y="234" width="414" height="662"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8B-Ta-YtU">
@@ -115,14 +115,30 @@
                                     <constraint firstAttribute="height" constant="150" id="yaA-r5-2ux"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FZ0-1e-f4u">
+                                <rect key="frame" x="0.0" y="194" width="414" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Fle-eX-VIv"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Details"/>
+                                    <segment title="Chart"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onSegmentedControlTouchUp:" destination="csE-oV-5pQ" eventType="valueChanged" id="RHp-dT-IhY"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Vp5-4F-Vp8" firstAttribute="top" secondItem="r8B-Ta-YtU" secondAttribute="bottom" id="3EM-8u-xa3"/>
                             <constraint firstItem="Vp5-4F-Vp8" firstAttribute="leading" secondItem="xzm-1r-8ua" secondAttribute="leading" id="HSa-hg-wLi"/>
                             <constraint firstItem="xzm-1r-8ua" firstAttribute="trailing" secondItem="Vp5-4F-Vp8" secondAttribute="trailing" id="J9A-pH-YDl"/>
+                            <constraint firstItem="xzm-1r-8ua" firstAttribute="trailing" secondItem="FZ0-1e-f4u" secondAttribute="trailing" id="bf5-cT-Afd"/>
                             <constraint firstItem="r8B-Ta-YtU" firstAttribute="top" secondItem="xzm-1r-8ua" secondAttribute="top" id="f1j-fX-eCf"/>
                             <constraint firstAttribute="bottom" secondItem="Vp5-4F-Vp8" secondAttribute="bottom" id="lyZ-9v-JF7"/>
+                            <constraint firstItem="FZ0-1e-f4u" firstAttribute="leading" secondItem="xzm-1r-8ua" secondAttribute="leading" id="nIF-WB-n3Z"/>
+                            <constraint firstItem="FZ0-1e-f4u" firstAttribute="top" secondItem="r8B-Ta-YtU" secondAttribute="bottom" id="oSp-kN-gaq"/>
+                            <constraint firstItem="Vp5-4F-Vp8" firstAttribute="top" secondItem="FZ0-1e-f4u" secondAttribute="bottom" id="seU-SJ-9rN"/>
                             <constraint firstItem="r8B-Ta-YtU" firstAttribute="leading" secondItem="xzm-1r-8ua" secondAttribute="leading" constant="8" id="wkx-VK-m7U"/>
                             <constraint firstItem="xzm-1r-8ua" firstAttribute="trailing" secondItem="r8B-Ta-YtU" secondAttribute="trailing" constant="8" id="zNi-LO-jvU"/>
                         </constraints>
@@ -130,6 +146,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="tLU-ag-hTV" id="0U0-Oe-BqF"/>
+                        <outlet property="segmentedControl" destination="FZ0-1e-f4u" id="jwk-Vy-D85"/>
                         <outlet property="subtitleLabel" destination="39E-4m-rit" id="g4F-TG-QSt"/>
                         <outlet property="tableView" destination="Vp5-4F-Vp8" id="ErE-V6-QX6"/>
                         <outlet property="titleLabel" destination="SHA-U5-6iz" id="lbR-Of-n8w"/>
