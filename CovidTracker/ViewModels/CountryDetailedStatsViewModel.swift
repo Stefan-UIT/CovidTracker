@@ -20,15 +20,18 @@ protocol CountryDetailedStatsViewModelDelegate: class {
 class CountryDetailedStatsViewModel {
     private var provider: CovidNetworkable
     private (set) var statsArray: [CountryStats]
+    private (set) var sortedStatsArray: [CountryStats]
     var countrySlug: String
     weak var delegate: CountryDetailedStatsViewModelDelegate?
     
     init(slug: String = "",
          statsArray: [CountryStats] = [CountryStats](),
+         sortedStatsArray: [CountryStats] = [CountryStats](),
          provider: CovidNetworkable = CovidService()) {
         self.provider = provider
         self.countrySlug = slug
         self.statsArray = statsArray
+        self.sortedStatsArray = sortedStatsArray
     }
     
     func fetchCountryDetails() {
@@ -40,7 +43,8 @@ class CountryDetailedStatsViewModel {
                 strongSelf.delegate?.viewModel(strongSelf, didFailWithError: error!)
                 return
             }
-            strongSelf.statsArray = data.reversed()
+            strongSelf.statsArray = data
+            strongSelf.sortedStatsArray = data.reversed()
             strongSelf.delegate?.didLoadDataSuccessfully(in: strongSelf)
         }
     }

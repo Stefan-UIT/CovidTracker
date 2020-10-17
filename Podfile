@@ -8,6 +8,7 @@ target 'CovidTracker' do
   # Pods for CovidTracker
   pod 'SwiftLint'
   pod 'Moya'
+  pod 'Charts'
 
   target 'CovidTrackerTests' do
     inherit! :search_paths
