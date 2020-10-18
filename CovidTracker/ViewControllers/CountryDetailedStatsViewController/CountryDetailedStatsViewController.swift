@@ -33,6 +33,7 @@ class CountryDetailedStatsViewController: BaseViewController {
         tableView.isHidden = !isDetailsSection
         lineChart.isHidden = isDetailsSection
         if !isDetailsSection {
+            setupChartData()
             lineChart.animate(xAxisDuration: 1.5)
         }
     }
@@ -46,6 +47,7 @@ private extension CountryDetailedStatsViewController {
         titleLabel.text = countryStats.country.name
         subtitleLabel.text = countryStats.country.slug
         lineChart.isHidden = true
+        segmentedControl.isUserInteractionEnabled = false
     }
     
     private func setupCharts() {
@@ -185,7 +187,7 @@ extension CountryDetailedStatsViewController: CountryDetailedStatsViewModelDeleg
     
     func didLoadDataSuccessfully(in viewModel: CountryDetailedStatsViewModel) {
         tableView.reloadData()
-        setupChartData()
+        segmentedControl.isUserInteractionEnabled = true
     }
     
     func viewModel(_ viewModel: CountryDetailedStatsViewModel, didFailWithError error: Error) {

@@ -113,7 +113,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-hs-poJ" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="228" y="11.5" width="93" height="93"/>
+                                <rect key="frame" x="228" y="19.5" width="93" height="93"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2EU-hs-poJ" secondAttribute="height" multiplier="1:1" id="goS-j7-PFu"/>
@@ -129,7 +129,7 @@
                             <constraint firstAttribute="trailing" secondItem="2EU-hs-poJ" secondAttribute="trailing" constant="8" id="UID-wC-D0x"/>
                             <constraint firstItem="kZI-X8-dG7" firstAttribute="top" secondItem="3yh-wp-Ryk" secondAttribute="bottom" constant="8" id="W7Y-9Z-afV"/>
                             <constraint firstItem="PRy-LJ-mYe" firstAttribute="leading" secondItem="NmR-SD-idk" secondAttribute="leading" id="Yhy-ki-oO3"/>
-                            <constraint firstItem="2EU-hs-poJ" firstAttribute="centerY" secondItem="NmR-SD-idk" secondAttribute="centerY" id="Z5i-H6-1Dm"/>
+                            <constraint firstItem="2EU-hs-poJ" firstAttribute="centerY" secondItem="NmR-SD-idk" secondAttribute="centerY" constant="8" id="Z5i-H6-1Dm"/>
                             <constraint firstItem="3yh-wp-Ryk" firstAttribute="top" secondItem="PRy-LJ-mYe" secondAttribute="bottom" constant="16" id="axk-SS-BmK"/>
                             <constraint firstItem="kZI-X8-dG7" firstAttribute="width" secondItem="S14-i8-s8R" secondAttribute="width" multiplier="0.666667" id="o9j-vu-ePG"/>
                             <constraint firstItem="3yh-wp-Ryk" firstAttribute="leading" secondItem="NmR-SD-idk" secondAttribute="leading" id="pk7-VG-1I4"/>
