@@ -20,6 +20,7 @@ protocol SummaryStatsListProtocol {
 }
 
 // swiftlint:disable weak_delegate
+// MARK: - SummaryStatsAdapter
 class SummaryStatsAdapter: NSObject {
     let delegate: SummaryStatsListProtocol
     // MARK: - Constructor

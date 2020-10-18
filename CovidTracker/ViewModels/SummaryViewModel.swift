@@ -63,7 +63,7 @@ final class SummaryViewModel {
     }
 }
 
-// MARK: - SummaryViewModel Computed Variables
+// MARK: - Computed Variables
 extension SummaryViewModel {
     private var isSearching: Bool {
         delegate?.isSearching ?? false

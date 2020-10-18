@@ -8,12 +8,14 @@
 
 import UIKit
 
-class LoadingViewController: BaseViewController {
+final class LoadingViewController: BaseViewController {
+    // MARK: - IBOutlets
     @IBOutlet weak var loadingImageView: UIImageView!
     
+    // MARK: - Private properties
     private let viewModel = SummaryViewModel()
     
-    // MARK: - View Life Cycle
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)

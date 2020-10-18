@@ -30,7 +30,10 @@ class SummaryCountryStatsCell: UITableViewCell {
         
         loadChartData(record: totalRecord)
     }
-    
+}
+
+// MARK: - Pie Charts helpers
+extension SummaryCountryStatsCell {
     private func setupChartsUI() {
         // legend is footer description
         pieChartView.legend.enabled = false
