@@ -11,16 +11,19 @@ import MapKit
 import Charts
 
 class CountryDetailedStatsViewController: BaseViewController {
+    // MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    // MARK: - Properties
     var viewModel: CountryDetailedStatsViewModel!
     var countryStats: CountryStats!
     private var lineChart = LineChartView()
     
+    // MARK: - View life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
@@ -28,11 +31,13 @@ class CountryDetailedStatsViewController: BaseViewController {
         setupUI()
     }
     
+    // MARK: - Actions
     @IBAction func onSegmentedControlTouchUp(_ sender: UISegmentedControl) {
         let isDetailsSection = segmentedControl.selectedSegmentIndex == 0
         tableView.isHidden = !isDetailsSection
         lineChart.isHidden = isDetailsSection
         if !isDetailsSection {
+            setupChartData()
             lineChart.animate(xAxisDuration: 1.5)
         }
     }
@@ -46,10 +51,12 @@ private extension CountryDetailedStatsViewController {
         titleLabel.text = countryStats.country.name
         subtitleLabel.text = countryStats.country.slug
         lineChart.isHidden = true
+        segmentedControl.isUserInteractionEnabled = false
     }
     
     private func setupCharts() {
         view.addSubview(lineChart)
+        
         // setup chart constraints
         lineChart.translatesAutoresizingMaskIntoConstraints = false
         lineChart.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
@@ -95,7 +102,7 @@ private extension CountryDetailedStatsViewController {
         let confirmedDataSet = lineChartDataSet(dataEntries: dataEntries.0,
                                                 lineColor: .covidPink,
                                                 label: "Confirmed")
-        
+
         let recoveredDataSet = lineChartDataSet(dataEntries: dataEntries.1,
                                                 lineColor: .covidGreen,
                                                 label: "Recovered")
@@ -142,13 +149,6 @@ private extension CountryDetailedStatsViewController {
 }
 
 // MARK: - UITableViewDelegate
-extension CountryDetailedStatsViewController: ChartViewDelegate {
-    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        //
-    }
-}
-
-// MARK: - UITableViewDelegate
 extension CountryDetailedStatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         120
@@ -185,7 +185,7 @@ extension CountryDetailedStatsViewController: CountryDetailedStatsViewModelDeleg
     
     func didLoadDataSuccessfully(in viewModel: CountryDetailedStatsViewModel) {
         tableView.reloadData()
-        setupChartData()
+        segmentedControl.isUserInteractionEnabled = true
     }
     
     func viewModel(_ viewModel: CountryDetailedStatsViewModel, didFailWithError error: Error) {

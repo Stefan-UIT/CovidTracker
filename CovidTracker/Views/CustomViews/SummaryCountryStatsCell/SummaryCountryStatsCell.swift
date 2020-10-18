@@ -14,7 +14,6 @@ class SummaryCountryStatsCell: UITableViewCell {
     @IBOutlet weak var recoveredLabel: UILabel!
     @IBOutlet weak var confirmedLabel: UILabel!
     @IBOutlet weak var countryNameLabel: UILabel!
-    
     @IBOutlet weak var pieChartView: PieChartView!
     
     override func awakeFromNib() {
@@ -31,7 +30,10 @@ class SummaryCountryStatsCell: UITableViewCell {
         
         loadChartData(record: totalRecord)
     }
-    
+}
+
+// MARK: - Pie Charts helpers
+extension SummaryCountryStatsCell {
     private func setupChartsUI() {
         // legend is footer description
         pieChartView.legend.enabled = false

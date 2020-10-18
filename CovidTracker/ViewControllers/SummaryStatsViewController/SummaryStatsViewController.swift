@@ -9,13 +9,15 @@
 import UIKit
 
 final class SummaryStatsViewController: BaseViewController {
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Properties
     var viewModel: SummaryViewModel!
     private let searchController = UISearchController(searchResultsController: nil)
     private var adapter: SummaryStatsAdapter!
     
-    // MARK: - Life Cycle
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
@@ -27,8 +29,17 @@ final class SummaryStatsViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
- 
-    // MARK: - Private Methods
+}
+
+// MARK: - Computed Variables
+extension SummaryStatsViewController {
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+}
+
+// MARK: - Private Helper Methods
+extension SummaryStatsViewController {
     private func initAdapter() {
         adapter = SummaryStatsAdapter(delegate: self)
         tableView.delegate = adapter
@@ -119,12 +130,5 @@ extension SummaryStatsViewController: SummaryStatsListProtocol {
     
     func retrieveNumberOfItems() -> Int {
         viewModel.numberOfCountryStats
-    }
-}
-
-// MARK: - Computed Variables
-extension SummaryStatsViewController {
-    var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
     }
 }

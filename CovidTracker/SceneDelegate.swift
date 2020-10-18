@@ -18,7 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         setupWindow(navController: navController, windowScene: windowScene)
         coordinator?.start()
     }
-    
+}
+
+// MARK: - Private helpers
+extension SceneDelegate {
     private func setupCoordinator() -> UINavigationController {
         let navController = UINavigationController()
         navController.navigationBar.tintColor = UIColor.covidPink

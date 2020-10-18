@@ -20,6 +20,7 @@ protocol SummaryStatsListProtocol {
 }
 
 // swiftlint:disable weak_delegate
+// MARK: - SummaryStatsAdapter
 class SummaryStatsAdapter: NSObject {
     let delegate: SummaryStatsListProtocol
     // MARK: - Constructor
@@ -80,20 +81,22 @@ extension SummaryStatsAdapter: UITableViewDelegate {
         let previewController = CountryDetailedStatsViewController.instantiate()
         previewController.countryStats = countryStats
         return UIContextMenuConfiguration(
-        identifier: countryStats.country.slug as NSString,
-        previewProvider: { previewController }) { _ in
-            let shareAction = UIAction(
-                title: Constants.Text.share,
-              image: UIImage.shareIcon) { _ in
-                // TODO: implement share
-            }
-            let copyAction = UIAction(
-              title: Constants.Text.copy,
-              image: UIImage.copyIcon) { _ in
-                // TODO: implement Copy
-            }
-            return UIMenu(title: "", children: [shareAction, copyAction])
-        }
+            identifier: countryStats.country.slug as NSString,
+            previewProvider: { previewController },
+            actionProvider: { _ in
+                let shareAction = UIAction(
+                    title: Constants.Text.share,
+                    image: UIImage.shareIcon) { _ in
+                        // TODO: implement share
+                }
+                let copyAction = UIAction(
+                    title: Constants.Text.copy,
+                    image: UIImage.copyIcon) { _ in
+                        // TODO: implement Copy
+                }
+                return UIMenu(title: "", children: [shareAction, copyAction])
+                
+        })
     }
     
     func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
