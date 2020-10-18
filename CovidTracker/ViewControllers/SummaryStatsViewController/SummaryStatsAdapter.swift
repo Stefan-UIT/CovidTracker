@@ -17,6 +17,7 @@ protocol SummaryStatsListProtocol {
     func didSelectItem(at indexPath: IndexPath)
     func retrieveNumberOfItems() -> Int
     func didSelectPreview(withViewController viewController: CountryDetailedStatsViewController)
+    func didSelectShareAction(countryStats: CountryStats)
 }
 
 // swiftlint:disable weak_delegate
@@ -87,12 +88,12 @@ extension SummaryStatsAdapter: UITableViewDelegate {
                 let shareAction = UIAction(
                     title: Constants.Text.share,
                     image: UIImage.shareIcon) { _ in
-                        // TODO: implement share
+                        self.delegate.didSelectShareAction(countryStats: countryStats)
                 }
                 let copyAction = UIAction(
                     title: Constants.Text.copy,
                     image: UIImage.copyIcon) { _ in
-                        // TODO: implement Copy
+                        UIPasteboard.general.string = countryStats.textToShare
                 }
                 return UIMenu(title: "", children: [shareAction, copyAction])
                 

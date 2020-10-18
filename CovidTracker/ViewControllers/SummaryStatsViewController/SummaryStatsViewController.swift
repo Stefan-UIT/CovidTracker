@@ -107,6 +107,12 @@ extension SummaryStatsViewController: SummaryViewModelDelegate {
 
 // MARK: - SummaryStatsListProtocol
 extension SummaryStatsViewController: SummaryStatsListProtocol {
+    func didSelectShareAction(countryStats: CountryStats) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.openShareActivity(withText: countryStats.textToShare)
+        }
+    }
+    
     var summaryStats: SummaryStats {
         viewModel.summaryStats
     }

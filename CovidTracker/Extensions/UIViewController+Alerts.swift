@@ -14,4 +14,10 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func openShareActivity(withText text:String) {
+        let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 }

@@ -15,6 +15,10 @@ struct CountryStats {
     var record: Record
     var date: Date
     var coordinate: CLLocationCoordinate2D?
+    
+    var textToShare: String {
+        "\(country.name)\n\(record.confirmed) - \(record.recovered) - \(record.deaths)"
+    }
 }
 
 extension CountryStats: Decodable {
