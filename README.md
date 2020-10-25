@@ -31,7 +31,7 @@ Download the project and open ```CovidTracker.xcworkspace```.
 - Adapter: to move data sources and delegates out of view controllers (``` SummaryStatsAdapter ```)
 - Api services:
     + ```CovidService``` contains a provider which will be the main object that we will use to interact with any ```CovidTarget``` endpoints.
-    + A Target (```MovieTarget```) should conforms to a protocol named ```TargetType```, which requires the entire endpoints informations. Our app has 2 main endpoints: ```fetchSummaryStats``` and ```fetchCountryDetails```
+    + A Target (```CovidTarget```) should conforms to a protocol named ```TargetType```, which requires the entire endpoints informations. Our app has 2 main endpoints: ```fetchSummaryStats``` and ```fetchCountryDetails```
     + An enpoint information should contain baseUrl, header, path, parameters, method, task(make request), etc..
     ( by using enum, case by case, entirely type-safe 🎉.)
     
