@@ -46,30 +46,30 @@ struct DebugPreviewView<T: UIView>: UIViewRepresentable {
     init(_ builder: @escaping () -> T) {
         view = builder()
     }
-
+    
     // MARK: - UIViewRepresentable
     func makeUIView(context: Context) -> UIView {
         return view
     }
-
+    
     func updateUIView(_ view: UIView, context: Context) {
-    // To fit the view to the smallest possible size
-    view.setContentHuggingPriority(.defaultHigh, for: .vertical)
-    view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        // To fit the view to the smallest possible size
+        view.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
 }
 
 struct DebugPreviewViewController<View: UIViewController>: UIViewControllerRepresentable {
     let viewController: View
-
+    
     init(_ builder: @escaping () -> View) {
         viewController = builder()
     }
-
+    
     // MARK: - UIViewRepresentable
     func makeUIViewController(context: Context) -> View {
         return viewController
-    
+        
     }
     func updateUIViewController(_ uiViewController: View, context: UIViewControllerRepresentableContext<DebugPreviewViewController<View>>) {
         

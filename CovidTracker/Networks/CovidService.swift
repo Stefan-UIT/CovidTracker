@@ -44,8 +44,7 @@ extension CovidService: CovidNetworkable {
                 completion(nil, error)
             case .success(let response):
                 do {
-                    let optionalData = try self.translationLayer.decode([OptionalObject<CountryStats>].self, fromData: response.data)
-                    let data = optionalData.compactMap { $0.value }
+                    let data = self.translationLayer.decodeSafelyArray(of: CountryStats.self, from: response.data)
                     completion(data, nil)
                 } catch let error {
                     completion(nil, error)

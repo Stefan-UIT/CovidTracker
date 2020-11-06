@@ -14,4 +14,5 @@ enum JsonParseError: Error {
 
 protocol Translatable {
     func decode<T: Decodable>(_ type: T.Type, fromData data: Data) throws -> T
+    func decodeSafelyArray<T: Decodable>(of type: T.Type, from data: Data) -> [T]
 }

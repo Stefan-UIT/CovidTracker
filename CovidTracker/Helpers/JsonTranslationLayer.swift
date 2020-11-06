@@ -8,14 +8,7 @@
 
 import Foundation
 
-struct JsonTranslationLayer: Translatable {
-    func decode<T: Decodable>(_ type: T.Type, fromData data: Data) throws -> T {
-        guard let result: T = try? decoder.decode(type, from: data) else {
-            throw JsonParseError.couldNotDecode }
-        
-        return result
-    }
-    
+struct JsonTranslationLayer {
     private var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -25,5 +18,18 @@ struct JsonTranslationLayer: Translatable {
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         return decoder
+    }
+}
+
+extension JsonTranslationLayer: Translatable {
+    func decode<T: Decodable>(_ type: T.Type, fromData data: Data) throws -> T {
+        guard let result: T = try? decoder.decode(type, from: data) else {
+            throw JsonParseError.couldNotDecode }
+        
+        return result
+    }
+    
+    func decodeSafelyArray<T: Decodable>(of type: T.Type, from data: Data) -> [T] {
+        return decoder.decodeSafelyArray(of: T.self, from: data)
     }
 }
