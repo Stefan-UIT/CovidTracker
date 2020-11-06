@@ -15,14 +15,19 @@ class MainCoordinator: Coordinator {
         self.navigationController = navigationController
     }
 
-    func start(withViewController viewController: BaseViewController = LoadingViewController.instantiate()) {
+//    func start(withViewController viewController: BaseViewController = LoadingViewController.instantiate()) {
+//        viewController.coordinator = self
+//        navigationController.pushViewController(viewController, animated: false)
+//    }
+    
+    func start(withViewController viewController: BaseViewController = LoadingViewController2()) {
         viewController.coordinator = self
         navigationController.pushViewController(viewController, animated: false)
     }
     
     func redirectToSummaryStatsVC(viewModel: SummaryViewModel) {
-        let countryDetailedStatsVC = SummaryStatsViewController.instantiate()
-        countryDetailedStatsVC.viewModel = viewModel
+//        let countryDetailedStatsVC = SummaryStatsViewController.instantiate()
+        let countryDetailedStatsVC = SummaryStatsViewController2(viewModel: viewModel)
         countryDetailedStatsVC.coordinator = self
         navigationController.pushViewController(countryDetailedStatsVC, animated: true)
     }
