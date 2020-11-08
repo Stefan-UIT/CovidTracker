@@ -35,12 +35,8 @@ extension CovidService: CovidNetworkable {
             case .failure(let error):
                 completion(nil, error)
             case .success(let response):
-//                do {
-                    let data = self.translationLayer.decodeSafelyArray(of: CountryStats.self, from: response.data)
-                    completion(data, nil)
-//                } catch let error {
-//                    completion(nil, error)
-//                }
+                let data = self.translationLayer.decodeSafelyArray(of: CountryStats.self, from: response.data)
+                completion(data, nil)
             }
         })
     }

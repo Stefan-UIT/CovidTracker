@@ -10,7 +10,8 @@ import Moya
 
 extension TargetType {
     var baseURL: URL {
-        return URL(string: AppGateways.covid19Api)!
+        print(Environment.serverURL.absoluteString)
+        return Environment.serverURL
     }
     
     var headers: [String: String]? {
@@ -20,4 +21,23 @@ extension TargetType {
     var validationType: ValidationType {
         return .successCodes
     }
+}
+
+public enum Environment {
+  private static let infoDictionary: [String: Any] = {
+    guard let dict = Bundle.main.infoDictionary else {
+      fatalError("Plist file not found")
+    }
+    return dict
+  }()
+
+  static let serverURL: URL = {
+    guard let rootURLstring = Environment.infoDictionary["SERVER_URL"] as? String else {
+      fatalError("Root URL not set in plist for this environment")
+    }
+    guard let url = URL(string: rootURLstring) else {
+      fatalError("Root URL is invalid")
+    }
+    return url
+  }()
 }

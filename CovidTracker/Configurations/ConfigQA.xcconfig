@@ -1,0 +1,20 @@
+//
+//  ConfigQA.xcconfig
+//  CovidTracker
+//
+//  Created by Trung Vo on 11/7/20.
+//  Copyright © 2020 Trung Vo. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Development.xcconfig
+// Server URL
+//ROOT_URL = https:/$()/api.covid19api.com/QA
+//
+//// App Settings
+//APP_NAME = MyTestApp (QA)
+//APP_BUNDLE_ID = com.thoughtbot.MyTestApp.QA
+
+#include “Pods/Target Support Files/Pods-CovidTracker/Pods-CovidTracker.qa.xcconfig”
