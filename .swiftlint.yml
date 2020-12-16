@@ -6,5 +6,5 @@ line_length: 180
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
 - Pods
-- SurveysTests
-- Surveys/SceneDelegate.swift
+- Diag ProTests
+- Diag Pro/SceneDelegate.swift
